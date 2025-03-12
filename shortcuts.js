@@ -24,7 +24,7 @@ let __WB_handlers = {
       false: {}
     }
   }
-}
+};
 
 
 // shortcut key handler functions
@@ -45,7 +45,7 @@ let __WB_shortcutFunctions = {
     // __WB_handlers[ctrl][alt][shift][key][999999] = () => {};
     __WB_handlers[ctrl][alt][shift][key][rank] = handler;
   }
-}
+};
 
 (function() {
   document.addEventListener('keydown', function(event) {

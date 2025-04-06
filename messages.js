@@ -4,7 +4,7 @@ if (typeof WB === "undefined") {
 }
 
 /* eslint-disable no-undef */
-let messagesFunctions = {
+let __WB_messagesFunctions = {
   publish: (type, content, win = unsafeWindow) => {
     win.postMessage({content: content, type: type}, "*");
   },
@@ -17,4 +17,4 @@ let messagesFunctions = {
   }
 }
 
-WB.messages = messagesFunctions;
+WB.messages = __WB_messagesFunctions;

@@ -6,7 +6,7 @@ if (typeof WB === "undefined") {
 }
 
 /* eslint-disable no-undef */
-let scriptConfig = {
+let __WB_scriptConfig = {
   stringConfig: (varName, defaultValue = "") => {
     GM_registerMenuCommand(`Set ${varName}`, () => {
       let val = prompt(`Value for ${varName}?`, GM_getValue(varName, defaultValue));
@@ -20,7 +20,7 @@ let scriptConfig = {
     let originalValue = GM_getValue(varName, defaultValue);
     GM_registerMenuCommand(`${originalValue ? 'Disable':'Enable'} ${varName}`, () => {
       GM_setValue(varName, !originalValue);
-      scriptConfig.boolConfig(varName, defaultValue);
+      __WB_scriptConfig.boolConfig(varName, defaultValue);
     }, {
       id: `${varName}_boolean_config`,
       title: `${varName} is currently ${originalValue ? 'Enabled':'Disabled'}`
@@ -29,4 +29,4 @@ let scriptConfig = {
   }
 }
 
-WB.scriptConfig = scriptConfig;
+WB.scriptConfig = __WB_scriptConfig;

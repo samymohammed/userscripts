@@ -4,7 +4,7 @@ if (typeof WB === "undefined") {
 }
 
 /* eslint-disable no-undef */
-let httpFunctions = {
+let __WB_httpFunctions = {
   get : (url, headers = {}) => {
     return new Promise((resolve, reject) => {
       GM_xmlhttpRequest({
@@ -39,4 +39,4 @@ let httpFunctions = {
 };
 
 
-WB.http = httpFunctions;
+WB.http = __WB_httpFunctions;

@@ -5,7 +5,7 @@ if (typeof WB === "undefined") {
 }
 
 // common helpers
-let helperFunctions = {
+let __WB_helperFunctions = {
   sleep : ms => new Promise(resolve => setTimeout(resolve, ms)),
   varWait : varName => {
 	return new Promise(resolve => {
@@ -19,10 +19,10 @@ let helperFunctions = {
   },
   domWait : async selector => {
     while (document.querySelector(selector) == null) {
-      await helperFunctions.sleep(10);
+      await __WB_helperFunctions.sleep(10);
     }
     return document.querySelector(selector);
   }
 }
 
-WB.helpers = helperFunctions;
+WB.helpers = __WB_helperFunctions;
